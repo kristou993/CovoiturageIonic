@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-navbar class="getstart">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title> Accueil</ion-title>
+
+  </ion-navbar>
+
+  
+  <ion-toolbar>
+    <ion-segment [(ngModel)]="icons" color="primary">
+      <ion-segment-button (click)="filtreOffres()" value="camera">
+       Offres
+      </ion-segment-button>
+      <ion-segment-button (click)="filtreDemandes()" value="bookmark">
+        Demandes
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content padding class="getstart">
+
+
+
+
+<ion-searchbar #searchbar placeholder="Gouvernorat..."  (ionInput)="getItems($event)"></ion-searchbar>
+
+
+<ion-card *ngFor="let a of Annonces">
+
+  
+
+
+<img src="https://i.pinimg.com/564x/d8/10/5e/d8105e26b22424a99676d6a4520f5b87.jpg">
+    
+    <ion-item>
+    <ion-icon name="navigate" color="primary" item-start large></ion-icon>
+    <p>  Départ : {{a.gouvernorat}} </p>
+    <p>  Déstination : {{a.gouvernoratdest}} </p> 
+    </ion-item>
+    <ion-item>
+    <ion-icon name="car" color="danger" item-start large></ion-icon>
+    <p> Type : {{a.type}} <p>
+    <p> Prix : {{a.prix}} DT <p>
+     
+    
+  </ion-item>
+   <ion-item>
+    <span item-start>{{a.datepublication|date:'dd/MM/yyyy'}}</span>
+    
+    <button ion-button icon-start clear item-end (click)="itemTapped($event,a)">
+      <ion-icon name="navigate" color="primary"></ion-icon>
+      Détails
+    </button>
+  </ion-item>
+
+
+
+           
+
+
+
+
+ 
+
+</ion-card>
+</ion-content>

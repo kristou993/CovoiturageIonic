@@ -1,0 +1,96 @@
+<!--
+  Generated template for the ProfilPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title> Vos informations</ion-title>
+     <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="getstart">
+<ion-card>
+<ion-card-header>
+   <ion-list>
+          <ion-item>
+              <ion-avatar item-start>
+                   <img src="./assets/imgs/avatar2.png" style="width:50px;height:50px">
+            </ion-avatar>
+                   <h2>Votre Profil</h2>
+                 
+          </ion-item>
+    </ion-list>
+</ion-card-header>
+
+  <ion-list>
+    <ion-item>
+
+      <ion-icon name="person" item-start color="primary"></ion-icon>
+     <h2> {{user.username}} </h2>
+     <hr>
+   </ion-item>
+
+     <ion-item>
+      <ion-icon name="navigate" item-start color="primary"></ion-icon>
+    <h2>  {{user.gouvernorat}} </h2>
+    <hr>
+     </ion-item>
+
+    <ion-item>
+      <ion-icon name="call" item-start color="primary"></ion-icon>
+     <h2> {{ user.telephone}} </h2>
+     <hr>
+     </ion-item>
+
+     <ion-item>
+      <ion-icon name="mail" item-start color="primary"></ion-icon>
+    <h2>  {{user.email}} </h2>
+    
+     </ion-item>
+
+  
+  </ion-list>
+</ion-card>
+
+<ion-card>
+ <ion-card-header>
+    <ion-list>
+          <ion-item>
+              <ion-avatar item-start>
+                   <img src="./assets/imgs/covoiturage.gif" style="width:50px;height:50px">
+            </ion-avatar>
+                   <h2>Vos covoiturages</h2>
+                 
+          </ion-item>
+    </ion-list>
+  </ion-card-header>
+  <ion-list>
+   
+<ion-item *ngFor="let a of Annonces">
+<h2>   <ion-icon name="car" item-start color="primary" > </ion-icon>
+ {{a.titre}} </h2>
+ <button ion-item (click)="Supprimer(a)">
+        <ion-icon name="trash" item-start color="danger"></ion-icon>
+
+      Supprimer
+    </button>
+<button ion-item (click)="modifier(a)">
+        <ion-icon name="brush" item-start color="secondary"></ion-icon>
+
+      Modifier
+    </button>
+    <hr>
+
+</ion-item>
+  </ion-list>
+</ion-card>
+
+</ion-content>
